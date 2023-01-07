@@ -7,6 +7,17 @@ LOOP: CPL A
     ACALL DELAY
     SJMP LOOP
 
+
+DELAY: MOV R7, #50H
+    H1: MOV R2,#255H
+    H2: MOV R3,#255H
+    L:DJNZ R3,L
+    DJNZ R2,H2
+    DJNZ R7,H1
+    RET
+END
+
+
 DELAY: MOV R7, #50H
     D2: MOV R8, #255H
     D3: MOV R9, #255H
@@ -18,4 +29,3 @@ DELAY: MOV R7, #50H
     DJNZ R8, D2
     DJNZ R7, DELAY
     RET
-END
